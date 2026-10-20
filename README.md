@@ -19,8 +19,11 @@ tra T300, PdC e caldaia e lo decodifica:
 ## Requisiti hardware
 
 - Gateway Waveshare **RS485 TO ETH (B)** (o equivalente in modalità trasparente)
-- Collegamento in parallelo sul bus Beretta: **A → A**, **B → B**, GND del gateway al **−** del bus.
+- Collegamento in parallelo sul bus Beretta: **A → A**, **B → B**.
   **Non collegare il + del bus.** Nessuna resistenza di terminazione aggiuntiva.
+- GND del gateway al **−** del bus: di solito non necessario con un alimentatore a spina
+  flottante. Consigliato se l'alimentatore del gateway è collegato a terra oppure se nella
+  diagnostica crescono `bytes_discarded` / `unmatched_responses`.
 
 Configurazione del gateway (VirCom o pagina web):
 
@@ -38,7 +41,7 @@ Configurazione del gateway (VirCom o pagina web):
 2. Repository: `https://github.com/pinowet/ha-beretta-hybrid`, tipo **Integrazione**
 3. Cerca **Beretta Ibrido**, **Scarica**, riavvia Home Assistant
 4. Impostazioni → Dispositivi e servizi → **Aggiungi integrazione** → *Beretta Ibrido*
-5. Inserisci IP e porta del gateway
+5. Inserisci IP e porta del gateway (porta predefinita 4196)
 
 ## Entità
 
@@ -67,7 +70,7 @@ scritti nel database. Gli stati on/off e i valori lenti sono aggiornati subito.
 traffico del bus da PC, utile per scoprire nuovi registri:
 
 ```
-python tools/sniffer_beretta.py 192.168.0.70 --durata 30
+python tools/sniffer_beretta.py 192.168.1.200 --durata 30
 ```
 
 La diagnostica dell'integrazione (Dispositivi e servizi → Beretta Ibrido → ⋮ → Scarica

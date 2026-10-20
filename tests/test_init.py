@@ -108,7 +108,7 @@ async def test_config_flow(hass: HomeAssistant) -> None:
         side_effect=OSError,
     ):
         result = await hass.config_entries.flow.async_configure(
-            result["flow_id"], {CONF_HOST: "192.168.0.70", CONF_PORT: 4196}
+            result["flow_id"], {CONF_HOST: "192.168.1.200", CONF_PORT: 4196}
         )
     assert result["errors"] == {"base": "cannot_connect"}
 
@@ -117,10 +117,10 @@ async def test_config_flow(hass: HomeAssistant) -> None:
         patch("custom_components.beretta_hybrid.async_setup_entry", return_value=True),
     ):
         result = await hass.config_entries.flow.async_configure(
-            result["flow_id"], {CONF_HOST: "192.168.0.70", CONF_PORT: 4196}
+            result["flow_id"], {CONF_HOST: "192.168.1.200", CONF_PORT: 4196}
         )
     assert result["type"] is FlowResultType.CREATE_ENTRY
-    assert result["data"] == {CONF_HOST: "192.168.0.70", CONF_PORT: 4196}
+    assert result["data"] == {CONF_HOST: "192.168.1.200", CONF_PORT: 4196}
 
 
 async def test_options_flow(hass: HomeAssistant) -> None:
