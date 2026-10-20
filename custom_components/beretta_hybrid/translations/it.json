@@ -1,0 +1,188 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Gateway RS485",
+        "description": "Gateway Waveshare RS485 TO ETH in modalità TCP Server trasparente (protocollo None, 9600 8N1). La connessione è in sola ricezione: sul bus non viene mai trasmesso nulla.",
+        "data": {
+          "host": "Host",
+          "port": "Porta"
+        },
+        "data_description": {
+          "host": "Indirizzo IP del gateway",
+          "port": "Porta TCP del gateway (predefinita 4196)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossibile connettersi al gateway"
+    },
+    "abort": {
+      "already_configured": "Questo gateway è già configurato"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opzioni",
+        "data": {
+          "min_interval": "Intervallo minimo di aggiornamento"
+        },
+        "data_description": {
+          "min_interval": "Secondi minimi tra due aggiornamenti dei valori che cambiano spesso (frequenza, potenza, portata, ventilatore, temperature caldaia). Riduce la crescita del database. 0 = ogni variazione."
+        }
+      }
+    }
+  },
+  "device": {
+    "pdc": {
+      "name": "Pompa di calore"
+    },
+    "boiler": {
+      "name": "Caldaia"
+    },
+    "t300": {
+      "name": "Hi,Comfort T300"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pdc_mode_set": {
+        "name": "Modo impostato",
+        "state": {
+          "auto": "Automatico",
+          "cooling": "Raffrescamento",
+          "heating": "Riscaldamento"
+        }
+      },
+      "pdc_operating_state": {
+        "name": "Stato di funzionamento",
+        "state": {
+          "off": "Ferma",
+          "cooling": "Raffrescamento",
+          "heating": "Riscaldamento",
+          "dhw": "Acqua calda sanitaria"
+        }
+      },
+      "pdc_water_setpoint_zone1": {
+        "name": "Setpoint acqua zona 1"
+      },
+      "pdc_water_setpoint_zone2": {
+        "name": "Setpoint acqua zona 2"
+      },
+      "pdc_compressor_frequency": {
+        "name": "Frequenza compressore"
+      },
+      "pdc_water_return": {
+        "name": "Temperatura ritorno"
+      },
+      "pdc_water_flow_temp": {
+        "name": "Temperatura mandata"
+      },
+      "pdc_outdoor_temp": {
+        "name": "Temperatura esterna"
+      },
+      "pdc_discharge_temp": {
+        "name": "Refrigerante tubo alta pressione"
+      },
+      "pdc_suction_temp": {
+        "name": "Refrigerante tubo bassa pressione"
+      },
+      "pdc_exchanger_refrigerant_temp": {
+        "name": "Refrigerante scambiatore"
+      },
+      "pdc_condenser_refrigerant_temp": {
+        "name": "Refrigerante condensatore"
+      },
+      "pdc_compressor_hours": {
+        "name": "Ore compressore"
+      },
+      "pdc_capacity": {
+        "name": "Potenza nominale"
+      },
+      "pdc_error_code": {
+        "name": "Codice errore"
+      },
+      "pdc_status_128": {
+        "name": "Registro stato 128"
+      },
+      "pdc_status_129": {
+        "name": "Registro stato 129"
+      },
+      "pdc_water_flow": {
+        "name": "Portata acqua"
+      },
+      "pdc_thermal_power": {
+        "name": "Potenza termica resa"
+      },
+      "pdc_energy_consumed": {
+        "name": "Energia consumata"
+      },
+      "boiler_pressure": {
+        "name": "Pressione impianto"
+      },
+      "boiler_flow_temp": {
+        "name": "Temperatura mandata"
+      },
+      "boiler_return_temp": {
+        "name": "Temperatura ritorno"
+      },
+      "boiler_dhw_temp": {
+        "name": "Temperatura sanitario"
+      },
+      "boiler_flue_temp": {
+        "name": "Temperatura fumi"
+      },
+      "boiler_outdoor_temp": {
+        "name": "Sonda esterna"
+      },
+      "boiler_fan_speed": {
+        "name": "Velocità ventilatore"
+      },
+      "boiler_fan_target": {
+        "name": "Velocità ventilatore richiesta"
+      },
+      "boiler_status": {
+        "name": "Registro stato"
+      },
+      "boiler_dhw_setpoint": {
+        "name": "Setpoint sanitario"
+      },
+      "t300_command_word": {
+        "name": "Parola di comando alla caldaia"
+      },
+      "t300_params_update": {
+        "name": "Ultimo aggiornamento parametri"
+      }
+    },
+    "binary_sensor": {
+      "pdc_power": {
+        "name": "PdC accesa"
+      },
+      "pdc_compressor_running": {
+        "name": "Compressore"
+      },
+      "pdc_circulation": {
+        "name": "Circolazione acqua"
+      },
+      "pdc_error": {
+        "name": "Errore"
+      },
+      "boiler_flame": {
+        "name": "Fiamma"
+      },
+      "boiler_dhw_active": {
+        "name": "Sanitario in corso"
+      },
+      "t300_heating_request": {
+        "name": "Richiesta riscaldamento"
+      },
+      "t300_dhw_request": {
+        "name": "Richiesta sanitario"
+      },
+      "bus": {
+        "name": "Bus RS485"
+      }
+    }
+  }
+}

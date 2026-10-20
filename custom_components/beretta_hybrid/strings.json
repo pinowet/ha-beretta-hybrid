@@ -1,0 +1,188 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "RS485 gateway",
+        "description": "Waveshare RS485 TO ETH gateway in transparent TCP server mode (protocol None, 9600 8N1). The connection is receive-only: nothing is ever sent on the bus.",
+        "data": {
+          "host": "Host",
+          "port": "Port"
+        },
+        "data_description": {
+          "host": "IP address of the gateway",
+          "port": "TCP port of the gateway (default 4196)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the gateway"
+    },
+    "abort": {
+      "already_configured": "This gateway is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "min_interval": "Minimum update interval"
+        },
+        "data_description": {
+          "min_interval": "Minimum seconds between two updates of fast-changing values (frequency, power, flow, fan, boiler temperatures). Reduces database growth. 0 = every change."
+        }
+      }
+    }
+  },
+  "device": {
+    "pdc": {
+      "name": "Heat pump"
+    },
+    "boiler": {
+      "name": "Boiler"
+    },
+    "t300": {
+      "name": "Hi,Comfort T300"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pdc_mode_set": {
+        "name": "Set mode",
+        "state": {
+          "auto": "Auto",
+          "cooling": "Cooling",
+          "heating": "Heating"
+        }
+      },
+      "pdc_operating_state": {
+        "name": "Operating state",
+        "state": {
+          "off": "Off",
+          "cooling": "Cooling",
+          "heating": "Heating",
+          "dhw": "Domestic hot water"
+        }
+      },
+      "pdc_water_setpoint_zone1": {
+        "name": "Water setpoint zone 1"
+      },
+      "pdc_water_setpoint_zone2": {
+        "name": "Water setpoint zone 2"
+      },
+      "pdc_compressor_frequency": {
+        "name": "Compressor frequency"
+      },
+      "pdc_water_return": {
+        "name": "Water return temperature"
+      },
+      "pdc_water_flow_temp": {
+        "name": "Water flow temperature"
+      },
+      "pdc_outdoor_temp": {
+        "name": "Outdoor temperature"
+      },
+      "pdc_discharge_temp": {
+        "name": "Refrigerant high pressure pipe"
+      },
+      "pdc_suction_temp": {
+        "name": "Refrigerant low pressure pipe"
+      },
+      "pdc_exchanger_refrigerant_temp": {
+        "name": "Refrigerant exchanger"
+      },
+      "pdc_condenser_refrigerant_temp": {
+        "name": "Refrigerant condenser"
+      },
+      "pdc_compressor_hours": {
+        "name": "Compressor operating time"
+      },
+      "pdc_capacity": {
+        "name": "Rated capacity"
+      },
+      "pdc_error_code": {
+        "name": "Error code"
+      },
+      "pdc_status_128": {
+        "name": "Status register 128"
+      },
+      "pdc_status_129": {
+        "name": "Status register 129"
+      },
+      "pdc_water_flow": {
+        "name": "Water flow rate"
+      },
+      "pdc_thermal_power": {
+        "name": "Thermal power output"
+      },
+      "pdc_energy_consumed": {
+        "name": "Energy consumed"
+      },
+      "boiler_pressure": {
+        "name": "System pressure"
+      },
+      "boiler_flow_temp": {
+        "name": "Flow temperature"
+      },
+      "boiler_return_temp": {
+        "name": "Return temperature"
+      },
+      "boiler_dhw_temp": {
+        "name": "Domestic hot water temperature"
+      },
+      "boiler_flue_temp": {
+        "name": "Flue gas temperature"
+      },
+      "boiler_outdoor_temp": {
+        "name": "Outdoor probe"
+      },
+      "boiler_fan_speed": {
+        "name": "Fan speed"
+      },
+      "boiler_fan_target": {
+        "name": "Fan target speed"
+      },
+      "boiler_status": {
+        "name": "Status register"
+      },
+      "boiler_dhw_setpoint": {
+        "name": "Domestic hot water setpoint"
+      },
+      "t300_command_word": {
+        "name": "Command word to boiler"
+      },
+      "t300_params_update": {
+        "name": "Last parameter update"
+      }
+    },
+    "binary_sensor": {
+      "pdc_power": {
+        "name": "Heat pump on"
+      },
+      "pdc_compressor_running": {
+        "name": "Compressor"
+      },
+      "pdc_circulation": {
+        "name": "Water circulation"
+      },
+      "pdc_error": {
+        "name": "Error"
+      },
+      "boiler_flame": {
+        "name": "Flame"
+      },
+      "boiler_dhw_active": {
+        "name": "Domestic hot water active"
+      },
+      "t300_heating_request": {
+        "name": "Heating request"
+      },
+      "t300_dhw_request": {
+        "name": "Domestic hot water request"
+      },
+      "bus": {
+        "name": "RS485 bus"
+      }
+    }
+  }
+}

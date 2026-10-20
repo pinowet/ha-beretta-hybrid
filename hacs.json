@@ -1,0 +1,5 @@
+{
+  "name": "Beretta Ibrido (Modbus passivo)",
+  "render_readme": true,
+  "homeassistant": "2025.2.0"
+}
