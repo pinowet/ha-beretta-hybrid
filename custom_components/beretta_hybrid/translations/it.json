@@ -168,6 +168,18 @@
       "pdc_error": {
         "name": "Errore"
       },
+      "pdc_defrost": {
+        "name": "Sbrinamento"
+      },
+      "pdc_antifreeze": {
+        "name": "Protezione antigelo"
+      },
+      "pdc_oil_return": {
+        "name": "Ritorno olio"
+      },
+      "pdc_aux_heat_source": {
+        "name": "Sorgente ausiliaria abilitata"
+      },
       "boiler_flame": {
         "name": "Fiamma"
       },

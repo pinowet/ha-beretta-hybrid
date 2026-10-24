@@ -168,11 +168,32 @@ SENSOR_POINTS: tuple[Point, ...] = (
     Point("t300_params_update", DEVICE_T300, _params_update),
 )
 
+# Register 128 of the heat pump ("status bit 1" of the Midea M-Thermal map).
+# 0x0400 is always set on this hybrid unit (boiler configured as auxiliary
+# heat source); 0x2000 is defrosting according to the Midea-clone map.
+# TODO: confirm the defrost bit on a real defrost cycle.
+PDC_STATUS_AUX_HEAT_SOURCE = 0x0400
+PDC_STATUS_DEFROST = 0x2000
+PDC_STATUS_ANTIFREEZE = 0x4000
+PDC_STATUS_OIL_RETURN = 0x8000
+
 BINARY_POINTS: tuple[Point, ...] = (
     Point("pdc_power", DEVICE_PDC, lambda st: _ne_zero(st.get(SLAVE_PDC, TABLE_HOLDING, 0))),
     Point("pdc_compressor_running", DEVICE_PDC, _pdc_positive(100)),
     Point("pdc_circulation", DEVICE_PDC, _pdc_positive(138)),
     Point("pdc_error", DEVICE_PDC, _pdc_positive(124)),
+    Point("pdc_defrost", DEVICE_PDC, _bit(SLAVE_PDC, TABLE_HOLDING, 128, PDC_STATUS_DEFROST)),
+    Point(
+        "pdc_antifreeze", DEVICE_PDC, _bit(SLAVE_PDC, TABLE_HOLDING, 128, PDC_STATUS_ANTIFREEZE)
+    ),
+    Point(
+        "pdc_oil_return", DEVICE_PDC, _bit(SLAVE_PDC, TABLE_HOLDING, 128, PDC_STATUS_OIL_RETURN)
+    ),
+    Point(
+        "pdc_aux_heat_source",
+        DEVICE_PDC,
+        _bit(SLAVE_PDC, TABLE_HOLDING, 128, PDC_STATUS_AUX_HEAT_SOURCE),
+    ),
     Point("boiler_flame", DEVICE_BOILER, _bit(SLAVE_BOILER, TABLE_INPUT, 1014, 0x0008)),
     Point("boiler_dhw_active", DEVICE_BOILER, _bit(SLAVE_BOILER, TABLE_INPUT, 1014, 0x0002)),
     Point("t300_heating_request", DEVICE_T300, _bit(SLAVE_BOILER, TABLE_WRITTEN, 2000, 0x0400)),

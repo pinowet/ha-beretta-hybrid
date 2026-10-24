@@ -75,7 +75,7 @@ _DESCRIPTIONS: dict[str, dict[str, Any]] = {
         **_DIAG,
     },
     "pdc_error_code": _DIAG,
-    "pdc_status_128": _HIDDEN,
+    "pdc_status_128": _DIAG,
     "pdc_status_129": _HIDDEN,
     "pdc_water_flow": {
         "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,

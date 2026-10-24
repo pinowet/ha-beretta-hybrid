@@ -168,6 +168,18 @@
       "pdc_error": {
         "name": "Error"
       },
+      "pdc_defrost": {
+        "name": "Defrosting"
+      },
+      "pdc_antifreeze": {
+        "name": "Anti-freeze protection"
+      },
+      "pdc_oil_return": {
+        "name": "Oil return"
+      },
+      "pdc_aux_heat_source": {
+        "name": "Auxiliary heat source enabled"
+      },
       "boiler_flame": {
         "name": "Flame"
       },

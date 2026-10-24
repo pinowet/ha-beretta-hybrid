@@ -27,6 +27,16 @@ _DESCRIPTIONS: dict[str, dict[str, Any]] = {
     "pdc_compressor_running": {"device_class": BinarySensorDeviceClass.RUNNING},
     "pdc_circulation": {"device_class": BinarySensorDeviceClass.RUNNING},
     "pdc_error": {"device_class": BinarySensorDeviceClass.PROBLEM},
+    "pdc_defrost": {"device_class": BinarySensorDeviceClass.RUNNING},
+    "pdc_antifreeze": {
+        "device_class": BinarySensorDeviceClass.RUNNING,
+        "entity_category": EntityCategory.DIAGNOSTIC,
+    },
+    "pdc_oil_return": {
+        "device_class": BinarySensorDeviceClass.RUNNING,
+        "entity_category": EntityCategory.DIAGNOSTIC,
+    },
+    "pdc_aux_heat_source": {"entity_category": EntityCategory.DIAGNOSTIC},
     "boiler_flame": {"device_class": BinarySensorDeviceClass.HEAT},
     "boiler_dhw_active": {"device_class": BinarySensorDeviceClass.RUNNING},
     "t300_heating_request": {"device_class": BinarySensorDeviceClass.HEAT},

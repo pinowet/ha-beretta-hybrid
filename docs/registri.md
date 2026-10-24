@@ -29,7 +29,7 @@ Hi,Comfort T300. Bus: Modbus RTU, 9600 8N1. **Unico master: il T300**, ciclo ogn
 | 123 | Taglia | kW (8) |
 | 124 | Codice errore | 0 = nessuno |
 | 125–127 | ? | sempre 0 |
-| 128 | Stato a bit | 0x0400, impulsi 0x2400 |
+| 128 | Stato a bit (status bit 1 Midea) | 0x0400 fisso = bit 10 sorgente ausiliaria (caldaia); impulsi 0x2400 = bit 13 sbrinamento (da confermare); bit 14 antigelo, bit 15 ritorno olio |
 | 129 | Stato a bit | 0x20 / 0x68 / 0x2068 con circolatore e compressore attivi |
 | 138 | Portata acqua | ×0,01 m³/h |
 | 140 | Potenza termica resa | ×0,01 kW |

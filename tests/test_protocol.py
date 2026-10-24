@@ -79,3 +79,22 @@ def test_garbage_is_skipped() -> None:
     parser.feed(b"\xff\x00\x13\x37\xaa" + stream[:500] + b"\x01\x02" + stream[500:])
     assert parser.state.frames > 90
     assert parser.state.get(1, "h", 105) == 31
+
+
+def test_pdc_status_bits() -> None:
+    from custom_components.beretta_hybrid.protocol import TABLE_HOLDING, BusState
+
+    st = BusState()
+    st.registers[(1, TABLE_HOLDING, 128)] = (0x0400, 0.0)
+    values = decode_all(st)
+    assert values["pdc_aux_heat_source"] is True
+    assert values["pdc_defrost"] is False
+    assert values["pdc_antifreeze"] is False
+    assert values["pdc_oil_return"] is False
+
+    st.registers[(1, TABLE_HOLDING, 128)] = (0x2400, 1.0)
+    values = decode_all(st)
+    assert values["pdc_defrost"] is True
+    assert values["pdc_status_128"] == 0x2400
+
+    assert decode_all(BusState())["pdc_defrost"] is None
